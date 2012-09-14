@@ -51,7 +51,7 @@ enyo.kind({
 		]},
 	{kind: "onyx.RadioGroup", style: "margin-top: 10px", fit: true, isContainer: true, name: "radioGroup", components: [
 			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "EXACT", name: "radioButton"},
-			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "ROUND UP", name: "radioButton2"},
+			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "ROUND UP", name: "radioButton2", active: true},
 			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "ROUND DN", name: "radioButton3"}
 		], onActivate: "modeChanged"}
 ],
