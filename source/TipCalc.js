@@ -20,7 +20,7 @@ enyo.kind({
 									{kind: "onyx.Picker", canGenerate: false, name: "percentPicker", components: [
 											{kind: "onyx.MenuItem", content: "0", name: "menuItem"},
 											{kind: "onyx.MenuItem", content: "10", name: "menuItem2"},
-											{kind: "onyx.MenuItem", content: "15", name: "menuItem3"},
+											{kind: "onyx.MenuItem", content: "15", name: "menuItem3", active: true},
 											{kind: "onyx.MenuItem", content: "20", name: "menuItem4"},
 											{kind: "onyx.MenuItem", content: "25", name: "menuItem5"}
 										], onChange: "percentChanged"}
