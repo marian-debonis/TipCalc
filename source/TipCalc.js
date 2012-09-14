@@ -4,52 +4,57 @@ enyo.kind({
 	isContainer : true,
 	name : "TipCalc",
 	components : [
-		{kind : "onyx.Groupbox", isContainer : true, name : "groupbox", components : [
-			{kind : "onyx.GroupboxHeader", content : "Bill Information", isContainer : true, name : "groupboxHeader"},
-			{kind : "onyx.InputDecorator", name : "inputDecorator3", components : [
-				{kind : "onyx.Input", defaultFocus: true, placeholder : "Enter subtotal ...", name : "subtotal", onchange: "subtotalChanged"}
-				]
-			} ]
-		},
-		{kind : "onyx.Groupbox", isContainer : true, name : "groupbox2", components : [
-			{kind : "onyx.GroupboxHeader", content : "Tip information", isContainer : true, name : "groupboxHeader2"},
-			{kind : "FittableColumns", content : "fittableColumns4", isContainer : true, name : "fittableColumns4", components: [
-					{kind : "Control", content: "TIP %", style : "padding: 10px;", name : "percent"},
-					{kind: "onyx.PickerDecorator", components: [
-						{}, //this uses the defaultKind property of PickerDecorator to inherit from PickerButton
-						{kind: "onyx.Picker", onChange: "percentChanged", name: "percentPicker", components: [
-							{content: "0"},
-							{content: "10"},
-							{content: "15", active: true},
-							{content: "20"},
-							{content: "25"}
-							]}
-						]},	
-					{kind : "Control", content: "Split#", style : "padding: 10px;", name : "split"},
-					{kind: "onyx.PickerDecorator", components: [
-						{}, //this uses the defaultKind property of PickerDecorator to inherit from PickerButton
-						{kind: "onyx.Picker", onChange: "splitChanged", name: "splitPicker", components: [
-							{content: "1", active: true},
-							{content: "2"},
-							{content: "3"},
-							{content: "4"},
-							{content: "5"}
-							]}
+	{kind: "onyx.Groupbox", isContainer: true, name: "groupbox", components: [
+			{kind: "onyx.GroupboxHeader", content: "Bill Information", isContainer: true, name: "groupboxHeader"},
+			{kind: "onyx.InputDecorator", name: "inputDecorator3", components: [
+					{kind: "onyx.Input", placeholder: "Enter subtotal ...", name: "subtotal", onchange: "subtotalChanged"}
+				]}
+		]},
+	{kind: "onyx.Groupbox", style: "margin-top: 10px", isContainer: true, name: "groupbox2", components: [
+			{kind: "onyx.GroupboxHeader", content: "Tip information", isContainer: true, name: "groupboxHeader2"},
+			{kind: "FittableColumns", content: "fittableColumns4", isContainer: true, name: "fittableColumns4", components: [
+					{kind: "FittableColumns", style: "width: 50%", name: "fittableColumns3", components: [
+							{kind: "Control", style: "padding: 10px;", content: "TIP %", fit: true, name: "percent"},
+							{kind: "onyx.PickerDecorator", name: "pickerDecorator", components: [
+									{kind: "onyx.PickerButton", name: "pickerButton"},
+									{kind: "onyx.Picker", canGenerate: false, name: "percentPicker", components: [
+											{kind: "onyx.MenuItem", content: "0", name: "menuItem"},
+											{kind: "onyx.MenuItem", content: "10", name: "menuItem2"},
+											{kind: "onyx.MenuItem", active: true, content: "15", name: "menuItem3"},
+											{kind: "onyx.MenuItem", content: "20", name: "menuItem4"},
+											{kind: "onyx.MenuItem", content: "25", name: "menuItem5"}
+										], onChange: "percentChanged"}
+								]}
+						]},
+					{kind: "FittableColumns", style: "width: 50%", name: "fittableColumns5", components: [
+							{kind: "Control", style: "padding: 10px;", content: "Split#", fit: true, name: "split"},
+							{kind: "onyx.PickerDecorator", name: "pickerDecorator2", components: [
+									{kind: "onyx.PickerButton", content: "1", name: "pickerButton2"},
+									{kind: "onyx.Picker", canGenerate: false, name: "splitPicker", components: [
+											{kind: "onyx.MenuItem", content: "1", name: "menuItem6"},
+											{kind: "onyx.MenuItem", content: "2", name: "menuItem7"},
+											{kind: "onyx.MenuItem", content: "3", name: "menuItem8"},
+											{kind: "onyx.MenuItem", content: "4", name: "menuItem9"},
+											{kind: "onyx.MenuItem", content: "5", name: "menuItem10"}
+										], onChange: "splitChanged"}
+								]}
 						]}
 				]},
-			{kind : "Control", content: "Tip amount", style : "padding: 10px;"},
-			{kind : "Control", content: "0.00", style : "padding: 10px;", name : "tip"},
-			{kind : "Control", content: "Total amount", style : "padding: 10px;"},
-			{kind : "Control", content: "0.00", style : "padding: 10px;", name : "total"}
-			]
-		},
-		{kind : "onyx.RadioGroup", isContainer : true, name : "radioGroup", onActivate: "modeChanged", components : [
-			{kind : "onyx.RadioButton", style: "width: 30%; height: 60px", content : "EXACT", name : "radioButton", active: true},
-			{kind : "onyx.RadioButton", style: "width: 30%; height: 60px", content : "ROUND UP", name : "radioButton2"},
-			{kind : "onyx.RadioButton", style: "width: 30%; height: 60px", content : "ROUND DN", name : "radioButton3"}
-			]
-		}
-	],
+			{kind: "FittableColumns", content: "fittableColumns", isContainer: true, name: "fittableColumns", components: [
+					{kind: "Control", style: "padding: 10px;", content: "Tip amount", fit: true, name: "control"},
+					{kind: "Control", style: "padding: 10px;", content: "0.00", name: "tip"}
+				]},
+			{kind: "FittableColumns", content: "fittableColumns2", isContainer: true, name: "fittableColumns2", components: [
+					{kind: "Control", style: "padding: 10px;", content: "Total amount", fit: true, name: "control2"},
+					{kind: "Control", style: "padding: 10px;", content: "0.00", name: "total"}
+				]}
+		]},
+	{kind: "onyx.RadioGroup", style: "margin-top: 10px", fit: true, isContainer: true, name: "radioGroup", components: [
+			{kind: "onyx.RadioButton", active: true, style: "width: 30%; height: 60px", content: "EXACT", name: "radioButton"},
+			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "ROUND UP", name: "radioButton2"},
+			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "ROUND DN", name: "radioButton3"}
+		], onActivate: "modeChanged"}
+],
 	subtotal: 0,
 	digits: 2,
 	subtotalChanged: function() {
