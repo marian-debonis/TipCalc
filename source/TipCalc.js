@@ -20,7 +20,7 @@ enyo.kind({
 									{kind: "onyx.Picker", canGenerate: false, name: "percentPicker", components: [
 											{kind: "onyx.MenuItem", content: "0", name: "menuItem"},
 											{kind: "onyx.MenuItem", content: "10", name: "menuItem2"},
-											{kind: "onyx.MenuItem", active: true, content: "15", name: "menuItem3"},
+											{kind: "onyx.MenuItem", content: "15", name: "menuItem3"},
 											{kind: "onyx.MenuItem", content: "20", name: "menuItem4"},
 											{kind: "onyx.MenuItem", content: "25", name: "menuItem5"}
 										], onChange: "percentChanged"}
@@ -50,7 +50,7 @@ enyo.kind({
 				]}
 		]},
 	{kind: "onyx.RadioGroup", style: "margin-top: 10px", fit: true, isContainer: true, name: "radioGroup", components: [
-			{kind: "onyx.RadioButton", active: true, style: "width: 30%; height: 60px", content: "EXACT", name: "radioButton"},
+			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "EXACT", name: "radioButton"},
 			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "ROUND UP", name: "radioButton2"},
 			{kind: "onyx.RadioButton", style: "width: 30%; height: 60px", content: "ROUND DN", name: "radioButton3"}
 		], onActivate: "modeChanged"}
